@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+stock-research/
+output/
+.env
+.env.*

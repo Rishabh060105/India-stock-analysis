@@ -1,0 +1,15 @@
+{
+  "analysis_date": "2026-10-05",
+  "sector": "bank",
+  "horizon": {"mode": "one-year", "exit_date": "2027-10-05"},
+  "quote": {"price_inr": 100, "date": "2026-10-05"},
+  "financials": [{
+    "period": "FY2026 (synthetic)", "period_months": 12, "unit": "crore",
+    "amounts": {"pat": 120, "equity_open": 700, "equity_close": 900, "cfo": -500, "debt": 9000, "cash": 1500}
+  }],
+  "scenarios": [
+    {"name": "bear", "method": "pb", "common_equity_crore": 900, "diluted_shares_crore": 10, "exit_multiple": [0.8, 1.0], "future_dividends_inr": 1},
+    {"name": "base", "method": "pb", "common_equity_crore": 1000, "diluted_shares_crore": 10, "exit_multiple": [1.2, 1.4], "future_dividends_inr": 3},
+    {"name": "bull", "method": "pb", "common_equity_crore": 1100, "diluted_shares_crore": 10, "exit_multiple": [1.5, 1.7], "future_dividends_inr": 4}
+  ]
+}

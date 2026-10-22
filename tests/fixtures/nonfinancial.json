@@ -1,0 +1,19 @@
+{
+  "analysis_date": "2026-10-05",
+  "sector": "nonfinancial",
+  "quote": {"price_inr": 100, "date": "2026-10-05"},
+  "financials": [{
+    "period": "FY2026 (synthetic)", "period_months": 12, "currency": "INR", "unit": "lakh",
+    "amounts": {"revenue": 100000, "ebit": 20000, "pat": 12000, "cfo": 18000, "capex": 6000,
+      "debt": 30000, "cash": 10000, "interest": 2000, "equity_open": 50000, "equity_close": 70000,
+      "capital_open": 80000, "capital_close": 120000}
+  }],
+  "scenarios": [
+    {"name": "bear", "years": 3, "method": "pe", "net_income_crore": 50, "diluted_shares_crore": 10, "exit_multiple": [12, 15], "future_dividends_inr": 3},
+    {"name": "base", "years": 3, "method": "pe", "net_income_crore": 66, "diluted_shares_crore": 12, "exit_multiple": [20, 24], "future_dividends_inr": 4},
+    {"name": "bull", "years": 3, "method": "pe", "net_income_crore": 100, "diluted_shares_crore": 10, "exit_multiple": [24, 28], "future_dividends_inr": 5},
+    {"name": "bear", "years": 5, "method": "pe", "net_income_crore": 60, "diluted_shares_crore": 10, "exit_multiple": [12, 15], "future_dividends_inr": 5},
+    {"name": "base", "years": 5, "method": "pe", "net_income_crore": 90, "diluted_shares_crore": 12, "exit_multiple": [20, 24], "future_dividends_inr": 7},
+    {"name": "bull", "years": 5, "method": "pe", "net_income_crore": 140, "diluted_shares_crore": 10, "exit_multiple": [24, 28], "future_dividends_inr": 9}
+  ]
+}

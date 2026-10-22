@@ -1,0 +1,4 @@
+interface:
+  display_name: "Indian Stock Analysis"
+  short_description: "Indian stock buy, hold or sell research for 1–5 years"
+  default_prompt: "Use $india-stock-analysis to evaluate an Indian stock and give an explicit action, investment horizon, and entry/exit conditions backed by sourced research."

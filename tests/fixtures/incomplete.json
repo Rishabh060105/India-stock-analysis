@@ -1,0 +1,9 @@
+{
+  "analysis_date": "2026-10-05",
+  "sector": "nonfinancial",
+  "horizon": {"mode": "one-year", "exit_date": "2027-03-31"},
+  "financials": [{
+    "period": "FY2026 (synthetic partial)", "period_months": 12, "unit": "crore",
+    "amounts": {"revenue": 200, "pat": -20, "cfo": null, "capex": 5, "debt": 80}
+  }]
+}
