@@ -37,7 +37,7 @@ results, keeping the original exit deadline.
 
 ## Execution and experimental orchestration
 
-Ordinary requests use the invoking chat's single-agent workflow. An explicitly requested adaptive team uses a bounded, reusable pool: a GPT-5.6 Luna coordinator and combined research specialist at `max` reasoning, with a GPT-6 Astra reviewer at `medium`. Required models are never silently substituted.
+Ordinary requests use the invoking chat's single-agent workflow. An explicitly requested adaptive team uses a bounded, reusable pool: a GPT-5.6 Luna coordinator and combined research specialist at `max` reasoning, with a GPT-6.1 Sol reviewer at `high`. Required models are never silently substituted.
 
 **The adaptive team is experimental and has not passed its comparative acceptance gate.** It is not the default, and no efficiency or investment-performance advantage is claimed. See [orchestration](references/orchestration.md) for routing, model requirements, review limits, benchmark limitations, and native completion/queue guidance. End-to-end queue delivery remains unverified.
 

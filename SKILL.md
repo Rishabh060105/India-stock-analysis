@@ -9,7 +9,7 @@ Produce a decision-useful report for a named Indian listed company. Default to q
 
 ## Execution route
 
-Read [orchestration.md](references/orchestration.md) before dispatching agents. The adaptive team is **experimental, not the default**, pending its documented comparative acceptance gate. Ordinary requests retain the existing single-agent workflow; an explicit request for the adaptive team uses the fixed Luna coordinator/specialists and Astra reviewer assignments. The invoking chat dispatches rather than impersonating those models. All live research agents must explicitly use the installed **Crawl4AI** skill for search-result and source retrieval, as detailed in sources.md. Never silently replace a required model or turn missing review into approval.
+Read [orchestration.md](references/orchestration.md) before dispatching agents. The adaptive team is **experimental, not the default**, pending its documented comparative acceptance gate. Ordinary requests retain the existing single-agent workflow; an explicit request for the adaptive team uses the fixed Luna coordinator/specialists and GPT-6.1 Sol reviewer assignments. The invoking chat dispatches rather than impersonating those models. All live research agents must explicitly use the installed **Crawl4AI** skill for search-result and source retrieval, as detailed in sources.md. Never silently replace a required model or turn missing review into approval.
 
 ## Resolve the request
 

@@ -8,7 +8,7 @@ Status: **experimental; not promoted**. The pooled benchmark closed on 2026-10-0
 | --- | --- | --- |
 | Coordinator | `gpt-5.6-luna` | `max` |
 | Research specialist (financial and business/governance passes) | `gpt-5.6-luna` | `max` |
-| Reviewer, including verification follow-ups | `gpt-6-astra` | `medium` |
+| Reviewer, including verification follow-ups | `gpt-6.1-sol` | `high` |
 
 Use a **fixed pool of at most three subagents per invoking chat**: one coordinator, one research specialist and one reviewer. The two research specialties are sequential assignments to the same Luna worker. Reuse existing matching agents and their follow-up/message APIs across requests, updates, repairs and reviews. Inspect native status first and keep a role-to-agent-ID registry in the orchestration record. Never create new agents per stock, per case, per review stage or per retry. Do not recursively spawn. Only the invoking chat may fill a missing pool role; coordinator and workers reuse supplied IDs. If an agent is lost/unusable and its role was already created, report the blocker and ask before creating a replacement. The limit counts distinct agents created, not just simultaneously active workers.
 
@@ -43,9 +43,9 @@ Capability checked on 2026-10-05 using local `codex queue --help` (`--thread`, `
 
 | Request | Work dispatched by coordinator |
 | --- | --- |
-| Fresh full research | One Luna specialist performs financial then business/governance passes; coordinator valuation; Astra review |
+| Fresh full research | One Luna specialist performs financial then business/governance passes; coordinator valuation; GPT-6.1 Sol review |
 | Results/material-announcement update | Existing specialist for changed financial and/or business/governance evidence; review affected claims and downstream valuation/action |
-| Quote-only update | Coordinator refreshes quote and recalculates; Astra review if action changes |
+| Quote-only update | Coordinator refreshes quote and recalculates; GPT-6.1 Sol review if action changes |
 | Explanation of saved research | Coordinator only; no fresh-price claim or revised recommendation |
 
 Coordinator owns identity, ownership, horizon/original deadline, quote, source inventory, canonical financials, valuation/calculator, reconciliation and final report. It verifies mandate before delegating; unresolved identity stops issuer-dependent work. Specialists supply evidence and assumptions, not competing final Buy/Sell votes.
@@ -84,7 +84,7 @@ Wait for required work to complete; a timeout or missing reviewer is not approva
 
 ## Comparative acceptance gate
 
-Compare (A) Luna alone using the prior workflow, (B) Luna plus Astra review, and (C) full adaptive team. Use six identical frozen cases: profitable nonfinancial, bank, incomplete/stale evidence, accounting conflict/corporate action, delayed one-year catalyst, and changed-horizon update. Run each configuration twice per case using the same bounded pool, identical evidence and model settings. Counterbalance suite order A/B/C then C/B/A. Do not describe these repetitions as independent or fresh-context trials. Keep expected answers outside agent inputs. Record pack hashes and actual dispatch settings.
+Compare (A) Luna alone using the prior workflow, (B) Luna plus GPT-6.1 Sol review, and (C) full adaptive team. Use six identical frozen cases: profitable nonfinancial, bank, incomplete/stale evidence, accounting conflict/corporate action, delayed one-year catalyst, and changed-horizon update. Run each configuration twice per case using the same bounded pool, identical evidence and model settings. Counterbalance suite order A/B/C then C/B/A. Do not describe these repetitions as independent or fresh-context trials. Keep expected answers outside agent inputs. Record pack hashes and actual dispatch settings.
 
 Score factual/citation support, arithmetic and accounting, deadline/identity/as-of correctness, seeded defect detection and unsupported actions against source facts. Record elapsed time, duplicate retrieval, tool calls and available token usage, including review overhead. Do not infer equal token budgets if the runtime cannot enforce or expose them. Include failed runs; do not retry selectively to improve a configuration's score.
 
@@ -93,3 +93,5 @@ The pooled benchmark cannot isolate architectural causality; report carryover an
 ## Research basis
 
 The design adapts dependency-aware parallel work from [LLMCompiler](https://arxiv.org/abs/2312.04511), manager–analyst context sharing from [FinCon](https://arxiv.org/abs/2407.06567), and task/audit contracts from the [financial orchestration paper](https://arxiv.org/pdf/2512.02227). [AgentPrune](https://arxiv.org/abs/2410.02506) motivates avoiding redundant communication; [failure analysis](https://arxiv.org/abs/2503.13657) motivates explicit deliverables and verification. [Scaling](https://arxiv.org/abs/2512.08296) and [equal-budget](https://arxiv.org/abs/2604.02460) studies motivate a single-agent baseline. These are design hypotheses, not replicated efficiency or return claims for this skill.
+
+Reviewer assignment updated on 2026-10-31 to `gpt-6.1-sol` at `high`. Historical benchmark records retain their original GPT-6 Astra settings; they do not validate this replacement. The adaptive route remains experimental pending revalidation.
